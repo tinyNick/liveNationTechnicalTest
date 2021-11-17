@@ -7,14 +7,11 @@ ENV PYTHONUNBUFFERED=1
 
 RUN mkdir /app
 WORKDIR /app
-
 COPY ./src/requirements.txt /app/requirements.txt
 RUN python -m pip install -r requirements.txt
-RUN python -m pip install uwsgi
-
 COPY ./src /app
 
 RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
 USER appuser
 
-CMD uwsgi --http 127.0.0.1:8000 --wsgi-file server.py --callable app
+CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
