@@ -1,4 +1,3 @@
-import pytest
 from numbers.math import *
 from numbers.random import randomNumbers
 from misc.health import health, alive
