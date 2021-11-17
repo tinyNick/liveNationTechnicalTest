@@ -1,6 +1,6 @@
 from numbers.math import *
 from numbers.random import randomNumbers
-from misc.healthAndMetrics import *
+from misc.health import health, alive
 from flask import Flask
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
 from prometheus_client import make_wsgi_app, Counter, Histogram
@@ -47,8 +47,8 @@ app.wsgi_app = DispatcherMiddleware(app.wsgi_app, {
 
 @app.route("/readiness")
 def readiness():
-  return healthAndMetrics.health()
+  return health.health()
 
 @app.route("/liveness")
 def liveness():
-  return healthAndMetrics.alive()
+  return health.alive()
