@@ -1,5 +1,7 @@
+from flask import Response
+
 def health():
-  return 'Feelin good!', 200
+  return Response("{'a':'b'}", status=200, mimetype='application/json')
 
 def alive():
-  return 'I\'m alive!', 200
+  return Response("{'a':'b'}", status=200, mimetype='application/json')
