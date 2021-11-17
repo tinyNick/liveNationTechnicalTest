@@ -5,7 +5,9 @@ ENV PYTHONDONTWRITEBYTECODE=1
 ENV FLASK_APP=server.py
 ENV PYTHONUNBUFFERED=1
 
+RUN pip3 install prometheus_client
 RUN mkdir /app
+
 WORKDIR /app
 COPY ./src/requirements.txt /app/requirements.txt
 RUN python -m pip install -r requirements.txt
