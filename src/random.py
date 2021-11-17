@@ -1,4 +1,3 @@
-from random import *
 from prometheus_client import Histogram
 import time
 

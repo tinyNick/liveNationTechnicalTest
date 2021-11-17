@@ -1,10 +1,9 @@
-from numbers.math import *
-from numbers.random import randomNumbers
-from misc.health import health, alive
+from math import *
+from random import *
+from health import *
 from flask import Flask
 from werkzeug.middleware.dispatcher import DispatcherMiddleware
-from prometheus_client import make_wsgi_app, Counter, Histogram
-from prometheus_client_core import CollectorRegistry
+from prometheus_client import make_wsgi_app, Counter
 import time
 
 app = Flask(__name__)
