@@ -11,7 +11,4 @@ COPY ./src/requirements.txt /app/requirements.txt
 RUN python -m pip install -r requirements.txt
 COPY ./src /app
 
-RUN adduser -u 5678 --disabled-password --gecos "" appuser && chown -R appuser /app
-USER appuser
-
 CMD ["python", "-m", "flask", "run", "--host=0.0.0.0"]
